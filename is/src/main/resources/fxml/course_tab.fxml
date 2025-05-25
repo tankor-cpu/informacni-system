@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="cz.vsb.is.controller.CourseTabController">
+
+    <!-- 🔍 Horní část: hledání -->
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <TextField fx:id="searchField" promptText="Hledat kurz podle názvu"/>
+            <Button text="Search" onAction="#onSearch"/>
+            <Button text="Refresh" onAction="#onRefresh"/>
+        </HBox>
+    </top>
+
+    <!-- 👈 Formulář vlevo -->
+    <left>
+        <VBox spacing="10" prefWidth="250">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <TextField fx:id="nameField" promptText="Název kurzu"/>
+            <TextField fx:id="codeField" promptText="Kód kurzu"/>
+            <TextField fx:id="creditsField" promptText="Počet kreditů"/>
+            <HBox spacing="10">
+                <Button text="Přidat" onAction="#onAdd"/>
+                <Button text="Upravit" onAction="#onUpdate"/>
+            </HBox>
+            <HBox spacing="10">
+                <Button text="Smazat" onAction="#onDelete"/>
+                <Button text="Vymazat" onAction="#onClear"/>
+            </HBox>
+        </VBox>
+    </left>
+
+    <!-- 👉 Tabulka vpravo -->
+    <center>
+        <TableView fx:id="courseTable">
+            <columns>
+                <TableColumn fx:id="idCol" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="nameCol" text="Název"/>
+                <TableColumn fx:id="codeCol" text="Kód"/>
+                <TableColumn fx:id="creditsCol" text="Kredity"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

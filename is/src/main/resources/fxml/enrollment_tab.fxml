@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="cz.vsb.is.controller.EnrollmentTabController">
+
+    <!-- 🔍 Horní část: hledání -->
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <TextField fx:id="searchField" promptText="Hledat podle studenta nebo kurzu"/>
+            <Button text="Search" onAction="#onSearch"/>
+            <Button text="Refresh" onAction="#onRefresh"/>
+        </HBox>
+    </top>
+
+    <!-- 👈 Formulář vlevo -->
+    <left>
+        <VBox spacing="10" prefWidth="300">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Vyber studenta:"/>
+            <ComboBox fx:id="studentCombo"/>
+            <Label text="Vyber kurz:"/>
+            <ComboBox fx:id="courseCombo"/>
+            <HBox spacing="10">
+                <Button text="Zapsat" onAction="#onEnroll"/>
+                <Button text="Smazat" onAction="#onDelete"/>
+                <Button text="Vymazat" onAction="#onClear"/>
+            </HBox>
+        </VBox>
+    </left>
+
+    <!-- 📋 Tabulka -->
+    <center>
+        <TableView fx:id="enrollmentTable">
+            <columns>
+                <TableColumn fx:id="idCol" text="ID" prefWidth="40"/>
+                <TableColumn fx:id="studentIdCol" text="ID Studenta" prefWidth="90"/>
+                <TableColumn fx:id="studentCol" text="Student" prefWidth="140"/>
+                <TableColumn fx:id="courseCol" text="Kurz" prefWidth="140"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="cz.vsb.is.controller.StudentTabController">
+
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <TextField fx:id="searchField" promptText="Hledat podle jména nebo příjmení"/>
+            <Button text="Search" onAction="#onSearch"/>
+            <Button text="Refresh" onAction="#onRefresh"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="10" prefWidth="250">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <TextField fx:id="firstNameField" promptText="Jméno"/>
+            <TextField fx:id="lastNameField" promptText="Příjmení"/>
+            <TextField fx:id="emailField" promptText="Email"/>
+            <TextField fx:id="dobField" promptText="Datum narození (YYYY-MM-DD)"/>
+            <ComboBox fx:id="genderBox" promptText="Pohlaví"/>
+            <TextField fx:id="phoneField" promptText="Telefon"/>
+            <HBox spacing="10">
+                <Button text="Přidat" onAction="#onAdd"/>
+                <Button text="Upravit" onAction="#onUpdate"/>
+            </HBox>
+            <HBox spacing="10">
+                <Button text="Smazat" onAction="#onDelete"/>
+                <Button text="Vymazat" onAction="#onClear"/>
+            </HBox>
+        </VBox>
+    </left>
+
+    <center>
+        <TableView fx:id="studentTable">
+            <columns>
+                <TableColumn fx:id="idCol" text="ID" prefWidth="40"/>
+                <TableColumn fx:id="firstNameCol" text="Jméno"/>
+                <TableColumn fx:id="lastNameCol" text="Příjmení"/>
+                <TableColumn fx:id="emailCol" text="Email"/>
+                <TableColumn fx:id="dobCol" text="Datum narození"/>
+                <TableColumn fx:id="genderCol" text="Pohlaví"/>
+                <TableColumn fx:id="phoneCol" text="Telefon"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
